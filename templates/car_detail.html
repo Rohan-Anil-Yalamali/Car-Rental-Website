@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{car.make}} {{car.model}} Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+        img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .details {
+            max-width: 500px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .details p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{car.make}} {{car.model}}</h1>
+    <div class="container">
+        <img src="{{car.image}}" alt="{{car.make}} {{car.model}}">
+        <div class="details">
+            <p><strong>Type:</strong> {{car.type}}</p>
+            <p><strong>Year:</strong> {{car.year}}</p>
+            <p><strong>Location:</strong> {{car.location}}</p>
+            <p><strong>Price per day:</strong> ${{car.price_per_day}}</p>
+            {% if car.available %}
+                <p style="color:green;"><strong>Status:</strong> Available</p>
+            {% else %}
+                <p style="color:red;"><strong>Status:</strong> Not Available</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
